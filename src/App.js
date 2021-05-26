@@ -1,23 +1,16 @@
-import logo from './logo.svg';
 import './App.css';
+import SmallSnake from './SmallSnake';
+import Snake from './snake';
 
 function App() {
+
+  const smallScreen = window.matchMedia("(max-width: 600px)").matches;
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {!smallScreen && <h1 style={{fontSize:"50px"}}>Snake</h1>}
+      {!smallScreen && <Snake/>}
+      {smallScreen && <SmallSnake/>}
     </div>
   );
 }
